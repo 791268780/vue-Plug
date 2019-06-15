@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Betterscroll from './views/Betterscroll.vue';
 import Index from './views/index.vue';
 import Cookie from './views/Cookie.vue';
+import Vuex from '@/views/vuex/index.vue';
 
 Vue.use(Router);
 
@@ -24,6 +25,11 @@ export default new Router({
       path: '/cookie',
       name: 'Cookie',
       component: Cookie,
+    },
+    {
+      path: '/vuex',
+      name: 'vuex',
+      component: Vuex,
     },
     // {
     //   path: '/about',
