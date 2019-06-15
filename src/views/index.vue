@@ -45,6 +45,7 @@ export default class Index extends Vue {
     'better-scroll楼层滚动': '/better-scroll',
     'Cookie操作': '/cookie',
     'Vuex数据集中管理' : '/vuex',
+    '用户登录': '/Login',
   };
 }
 </script>

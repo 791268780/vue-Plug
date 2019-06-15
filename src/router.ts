@@ -4,6 +4,7 @@ import Betterscroll from './views/Betterscroll.vue';
 import Index from './views/index.vue';
 import Cookie from './views/Cookie.vue';
 import Vuex from '@/views/vuex/index.vue';
+import Login from '@/views/login.vue';
 
 Vue.use(Router);
 
@@ -20,16 +21,30 @@ export default new Router({
       path: '/better-scroll',
       name: 'Betterscroll',
       component: Betterscroll,
+      meta: {
+        requireAuth: true,
+      },
     },
     {
       path: '/cookie',
       name: 'Cookie',
       component: Cookie,
+      meta: {
+        requireAuth: true,
+      },
     },
     {
       path: '/vuex',
       name: 'vuex',
       component: Vuex,
+      meta: {
+        requireAuth: true,
+      },
+    },
+    {
+      path: '/Login',
+      name: 'Login',
+      component: Login,
     },
     // {
     //   path: '/about',
