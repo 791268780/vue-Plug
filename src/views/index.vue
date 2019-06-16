@@ -32,7 +32,7 @@ a {
 
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+import { Component, Vue, Watch } from 'vue-property-decorator';
 
 @Component({
   name: 'index',
@@ -47,5 +47,15 @@ export default class Index extends Vue {
     'Vuex数据集中管理' : '/vuex',
     '用户登录': '/Login',
   };
+
+  // // 在mounted后面 调用 beforeRouteEnter守卫传给 next 的回调函数之前调用 
+  // public activated() { // 在组件第一次渲染时会被调用，之后在每次缓存组件被激活时调用
+  //   console.log('组件第一次加载 缓存');
+  // }
+
+  // public deactivated() { // 组件被停用(离开路由)时调用 (不一定被销毁了)
+  //   console.log('组件被停用 离开路由');
+  // }
+
 }
 </script>

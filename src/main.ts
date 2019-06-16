@@ -2,10 +2,16 @@ import Vue from 'vue';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-
+import Component from 'vue-class-component'; // 用于注册 路由 组件钩子函数
 import Minxins from '@/mixins/config';
 
 Vue.config.productionTip = false;
+
+Component.registerHooks([ // 注册路由组件钩子函数
+  'beforeRouteEnter',
+  'beforeRouteLeave',
+  'beforeRouteUpdate', // for vue-router 2.2+
+])
 
 router.beforeEach((to, from, next) => {  // 路由钩子函数
   if (to.matched.some( (record) =>  record.meta.requireAuth )) { // 判断该路由是否需要登录权限
@@ -23,6 +29,16 @@ router.beforeEach((to, from, next) => {  // 路由钩子函数
     next();
   }});
 
+router.afterEach((to, from) => { // to 即将进入的路由  from 即将离开的路由
+  console.log('即将进入：', to);
+  console.log('即将离开：', from);
+  window.scrollTo(0, 0); // 将页面返回最顶端
+})
+
+router.beforeResolve((to, from, next) => { // 全局解析守卫(2.5.0+) 在 组件路由钩子beforeRouteEnter调用之后调用
+  console.log('解析守卫被调用了');
+  next();
+});
 
 new Vue({
   mixins: [Minxins],

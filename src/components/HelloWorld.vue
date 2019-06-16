@@ -36,6 +36,11 @@ export default class HelloWorld extends Vue {
     localStorage.removeItem('name');
     this.name = false;
   }
+
+  public beforeRouteUpdate(to: any, from: any, next: any) { // 当前路由改变，但是该组件被复用时调用
+    console.log('组件被复用了');    
+    next(); // 调用进入下一个钩子函数
+  }
 }
 </script>
 
