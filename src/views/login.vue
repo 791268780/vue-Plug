@@ -1,9 +1,9 @@
 <template>
   <div class="login">
     <HelloWorld />
-    用户名：<input type="text" v-model="uname"><br/><br/>
-    密码：<input type="password" v-model="password"><br/><br/>
-    <button @click="local" @keydown.enter="local">提交</button>
+    用户名：<input type="text" v-model="uname" @keyup.enter="local"><br/><br/>
+    密码：<input type="password" v-model="password" @keyup.enter="local"><br/><br/>
+    <button @click="local" >提交</button>
   </div>
 </template>
 
@@ -39,10 +39,14 @@ export default class Login extends Vue {
       if ( this.uname.toString() === obj.name.toString() && this.password.toString() === obj.password.toString() ) {
         if ( !localStorage.getItem('name') ) {
           alert('登录成功！');
+          this.uname = '';
+          this.password = '';
           localStorage.setItem('name', JSON.stringify(obj));
           this.$router.push({ path: '/' });
         }  else {
-          alert('以有用户登录，请先注销');
+          alert('已有用户登录，请先注销');
+          this.uname = '';
+          this.password = '';
         }
         this.name = true;
       }
@@ -60,7 +64,7 @@ export default class Login extends Vue {
   }
 
   public beforeRouteUpdate(to: any, from: any, next: any) { // 当前路由改变，但是该组件被复用时调用
-    console.log('index');    
+    console.log('index');    // 可以设置路由动画
     next(); // 调用进入下一个钩子函数
   }
 

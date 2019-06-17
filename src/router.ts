@@ -5,6 +5,7 @@ import Index from './views/index.vue';
 // import Cookie from './views/Cookie.vue';
 import Vuex from '@/views/vuex/index.vue';
 import Login from '@/views/login.vue';
+// import busCom from '@/views/BrotherBus/index.vue';
 
 Vue.use(Router);
 
@@ -32,7 +33,7 @@ export default new Router({
     {
       path: '/cookie',
       name: 'Cookie',
-      component: resolve => require(['@/views/Cookie'],resolve), // 懒加载 可能打包后悔报错 解决首次加载时间长的问题
+      component: resolve => require(['@/views/Cookie'],resolve), // 懒加载 可能打包后可能报错 解决首次加载时间长的问题
       meta: {
         keepAlive: true,  // 需要缓存
         requireAuth: true,
@@ -53,6 +54,15 @@ export default new Router({
       component: Login,
       meta: {
         keepAlive: true,  // 需要缓存
+      },
+    },
+    {
+      path: '/bus',
+      name: 'bus',
+      component: () => import(/* webpackChunkName: "about" */ './views/BrotherBus/index.vue'),
+      meta: {
+        keepAlive: true,  // 需要缓存
+        requireAuth: true,
       },
     },
     // {
