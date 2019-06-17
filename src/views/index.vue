@@ -46,6 +46,7 @@ export default class Index extends Vue {
     'Cookie操作': '/cookie',
     'Vuex数据集中管理' : '/vuex',
     '用户登录': '/Login',
+    '兄弟传参': '/bus',
   };
 
   // // 在mounted后面 调用 beforeRouteEnter守卫传给 next 的回调函数之前调用 

@@ -21,7 +21,7 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-
+import { mapState } from 'vuex';
 
 @Component({
   name: 'Comone',
@@ -31,7 +31,7 @@ import { Component, Vue } from 'vue-property-decorator';
 })
 
 export default class Comone extends Vue {
-  public get count() {
+  public get mapState() {
     return this.$store.state.iNumberCount;          // 获取  state中的数据
   }
 }

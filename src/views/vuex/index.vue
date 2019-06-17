@@ -37,6 +37,7 @@ import Comone from './component/Comone.vue';
 import Comtow from './component/Comtow.vue';
 import HelloWorld from '@/components/HelloWorld.vue';
 
+
 @Component({
   name: 'vuex-index',
   components: {
