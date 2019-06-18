@@ -33,7 +33,7 @@ export default new Router({
     {
       path: '/cookie',
       name: 'Cookie',
-      component: resolve => require(['@/views/Cookie'],resolve), // 懒加载 可能打包后可能报错 解决首次加载时间长的问题
+      component: (resolve) => require(['@/views/Cookie'], resolve), // 懒加载 可能打包后可能报错 解决首次加载时间长的问题
       meta: {
         keepAlive: true,  // 需要缓存
         requireAuth: true,
@@ -65,13 +65,15 @@ export default new Router({
         requireAuth: true,
       },
     },
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (about.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import(/* webpackChunkName: "about" */ './views/About.vue'),
-    // },
+    {
+      path: '/magnifier',
+      name: 'Magnifier',
+      component: () => import(/* webpackChunkName: "about" */ './views/magnifierVue/index.vue'),
+      meta: {
+        keepAlive: true,  // 需要缓存
+        requireAuth: true,
+      },
+    },
+
   ],
 });

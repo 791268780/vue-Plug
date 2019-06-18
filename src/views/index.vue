@@ -47,9 +47,10 @@ export default class Index extends Vue {
     'Vuex数据集中管理' : '/vuex',
     '用户登录': '/Login',
     '兄弟传参': '/bus',
+    '放大境': '/magnifier',
   };
 
-  // // 在mounted后面 调用 beforeRouteEnter守卫传给 next 的回调函数之前调用 
+  // // 在mounted后面 调用 beforeRouteEnter守卫传给 next 的回调函数之前调用
   // public activated() { // 在组件第一次渲染时会被调用，之后在每次缓存组件被激活时调用
   //   console.log('组件第一次加载 缓存');
   // }

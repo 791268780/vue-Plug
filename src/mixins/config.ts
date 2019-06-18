@@ -8,7 +8,7 @@ import { Component, Vue, Emit } from 'vue-property-decorator';
 
 class Minxins extends Vue {
   public created() {
-    const login = { 
+    const login = {
       0: {name: 'wcj' , password: 791268780 },
     };
     this.$store.dispatch('nameActions' , login );

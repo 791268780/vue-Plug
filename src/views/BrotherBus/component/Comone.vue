@@ -43,8 +43,8 @@ export default class Comones extends Vue {
 
   public created() {
     Bus.$on('sendB', (val: any) => {
-      this.b = '接收到兄弟组件B传来的值：' + val; 
-    })
+      this.b = '接收到兄弟组件B传来的值：' + val;
+    });
   }
 
   public sendB() {

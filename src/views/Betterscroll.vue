@@ -50,6 +50,8 @@ ul {
 .home {
   display: flex;
   justify-content: left;
+  width: 700px;
+  margin: 0 auto;
 }
 
 .left {
