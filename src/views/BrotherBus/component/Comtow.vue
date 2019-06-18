@@ -43,9 +43,9 @@ export default class Comtows extends Vue {
   public b: any = 0;  // 传给a组件的值
   public created() {
     Bus.$on('sendA' , (val: any) => {
-      console.log(val)
+      console.log(val);
       this.a = '接收到兄弟A传来的值：' + val;
-    })
+    });
   }
 
   public sendA() {

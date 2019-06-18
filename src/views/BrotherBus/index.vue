@@ -30,7 +30,7 @@ import HelloWorld from '@/components/HelloWorld.vue';
   },
 })
 
-export default class busCom extends Vue {
-  
+export default class BusCom extends Vue {
+
 }
 </script>

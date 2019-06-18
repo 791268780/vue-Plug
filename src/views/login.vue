@@ -34,7 +34,6 @@ export default class Login extends Vue {
     if ( str.length <= 0 ) {
       return;
     }
-    console.log(str);
     str.forEach((obj: any) => {
       if ( this.uname.toString() === obj.name.toString() && this.password.toString() === obj.password.toString() ) {
         if ( !localStorage.getItem('name') ) {
@@ -69,7 +68,7 @@ export default class Login extends Vue {
   }
 
   public beforeRouteLeave(to: any, from: any, next: any) { // 路由离开该组件前调用
-    console.log('离开了该组件');    
+    console.log('离开了该组件');
     next(); // 调用进入下一个钩子函数
   }
 }

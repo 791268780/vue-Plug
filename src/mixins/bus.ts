@@ -1,3 +1,5 @@
 import { Component, Vue, Emit } from 'vue-property-decorator';
 
-export default new Vue;
+const U: any = new Vue();
+
+export default U;
