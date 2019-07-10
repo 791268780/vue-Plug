@@ -22,7 +22,7 @@ export default new Router({
       },
     },
     {
-      path: '/better-scroll',
+      path: '/better-scroll/:id',
       name: 'Betterscroll',
       component: Betterscroll, // 非懒加载
       meta: {
@@ -69,6 +69,24 @@ export default new Router({
       path: '/magnifier',
       name: 'Magnifier',
       component: () => import(/* webpackChunkName: "about" */ './views/magnifierVue/index.vue'),
+      meta: {
+        keepAlive: true,  // 需要缓存
+        requireAuth: true,
+      },
+    },
+    {
+      path: '/WebStorageStorage',
+      name: 'WebStorageStorage',
+      component: () => import(/* webpackChunkName: "about" */ './views/WebStorage_Storage/set.vue'),
+      meta: {
+        keepAlive: true,  // 需要缓存
+        requireAuth: true,
+      },
+    },
+    {
+      path: '/get',
+      name: 'get',
+      component: () => import(/* webpackChunkName: "about" */ './views/WebStorage_Storage/get.vue'),
       meta: {
         keepAlive: true,  // 需要缓存
         requireAuth: true,

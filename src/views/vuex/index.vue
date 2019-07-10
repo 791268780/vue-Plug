@@ -5,6 +5,12 @@
       <Comone/>
       <Comtow/>
     </div>
+    <div style="width:100%;text-align:center;font-size:4vmin;">
+      vuex-persistedstate插件将值存入了缓存sessionStorage ：{{huanc}}
+    </div>
+     <div style="width:100%;text-align:center;font-size:4vmin;">
+      vuex-persistedstate插件将值存入了缓存localStorage ：{{local}}
+    </div>
     <div>
       <button @click="count(1)">将数据加1存入store</button>
       <button @click="count(-1)">将数据减1存入store</button>
@@ -49,9 +55,20 @@ import HelloWorld from '@/components/HelloWorld.vue';
 
 export default class VuexIndex extends Vue {
   public i = 0;
+  public huanc: any = '';
+  public local: any = '';
   public count(iNumber: any) {
     this.i += iNumber;
     this.$store.dispatch('CountNumberActions' , this.i);
+    this.getStorage();
+  }
+
+  public getStorage() {
+    let vuexsion = JSON.parse(sessionStorage.vuex);
+    this.huanc = vuexsion.iNumberCount;
+
+    let vuexlocal = JSON.parse(localStorage.vuex);
+    this.local = vuexlocal.iNumberCount;
   }
 
    // 在mounted后面 调用 beforeRouteEnter守卫传给 next 的回调函数之前调用

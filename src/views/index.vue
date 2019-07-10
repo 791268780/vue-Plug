@@ -1,6 +1,6 @@
 <template>
   <div class="index">
-    <router-link :to="item" v-for="(item , i) in obj" :key="i">{{i}}</router-link>    
+    <router-link :to="item" v-for="(item , i) in obj" :key="i">{{i}}</router-link>
   </div>
 </template>
 
@@ -42,13 +42,15 @@ import { Component, Vue, Watch } from 'vue-property-decorator';
 
 export default class Index extends Vue {
   public obj = { // 名称：路由，
-    'better-scroll楼层滚动': '/better-scroll',
+    'better-scroll楼层滚动': '/better-scroll/index',
     'Cookie操作': '/cookie',
     'Vuex数据集中管理' : '/vuex',
     '用户登录': '/Login',
     '兄弟传参': '/bus',
     '放大境': '/magnifier',
+    'WebStorage监听Storage事件':'/WebStorageStorage',
   };
+
 
   // // 在mounted后面 调用 beforeRouteEnter守卫传给 next 的回调函数之前调用
   // public activated() { // 在组件第一次渲染时会被调用，之后在每次缓存组件被激活时调用
@@ -58,6 +60,8 @@ export default class Index extends Vue {
   // public deactivated() { // 组件被停用(离开路由)时调用 (不一定被销毁了)
   //   console.log('组件被停用 离开路由');
   // }
+
+
 
 }
 </script>

@@ -16,6 +16,11 @@
         </ul>
       </div>
     </div>
+    <br>
+    <br>
+    <div>
+      index传来的参数：{{sss}}
+    </div>
   </div>
   
 </template>
@@ -93,12 +98,16 @@ export default class Betterscroll extends Vue {
   public navwrapScroll: any;
   public wrapperScroll: any;
 
+  public sss = '';
   public created() {
     this.$nextTick(() => {
       // 3 在这个函数中调用以防内容还未加载完就执行，获取不到元素的高度导致无法滑动
       this._initScroll();
       this.height();
     });
+
+  this.sss = this.$route.params.id;
+
   }
 
   public _initScroll() {
@@ -120,7 +129,6 @@ export default class Betterscroll extends Vue {
       // 当允许滚动并滚动的y轴小于0
       if (this.menuIndexChange && pos.y <= 0) {
         this.scrollY = Math.abs(Math.round(pos.y));  // 滚动距离
-
         // 循环每一个模块距离顶部的高度
         for (let i = 0; i < this.listHeight.length; i++) {
           const height1 = this.listHeight[i];
