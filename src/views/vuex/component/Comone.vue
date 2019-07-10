@@ -31,7 +31,7 @@ import { mapState } from 'vuex';
 })
 
 export default class Comone extends Vue {
-  public get mapState() {
+  public get count() {
     return this.$store.state.iNumberCount;          // 获取  state中的数据
   }
 }

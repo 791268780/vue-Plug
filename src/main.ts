@@ -5,6 +5,8 @@ import store from './store';
 import Component from 'vue-class-component'; // 用于注册 路由 组件钩子函数
 import Minxins from '@/mixins/config';
 
+// import Navigation from 'vue-navigation';  // ts引入不成功
+
 Vue.config.productionTip = false;
 
 Component.registerHooks([ // 注册路由组件钩子函数            有bug!!!!!!
@@ -42,6 +44,25 @@ router.beforeResolve((to, from, next) => { // 全局解析守卫(2.5.0+) 在 组
   console.log('解析守卫被调用了');
   next();
 });
+
+
+Vue.prototype.resetSetItem = function (key: any, newVal: any) {  // 自定义事件 监听webStorage 数据改变
+  if (key === 'watchStorage') {
+      // 创建一个StorageEvent事件
+      var newStorageEvent = document.createEvent('StorageEvent');
+      const storage = {
+          setItem: function ( k: any, val: any) {
+              sessionStorage.setItem(k, val);
+              // 初始化创建的事件
+              newStorageEvent.initStorageEvent('setItem', false, false, k, null, val, null, null); // 重要
+              // 派发对象 
+              window.dispatchEvent(newStorageEvent); // 重要
+          }
+      }
+      return storage.setItem(key, newVal);
+  }
+}
+
 
 new Vue({
   mixins: [Minxins],

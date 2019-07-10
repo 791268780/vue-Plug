@@ -34,4 +34,12 @@ ul {
 a {
   text-decoration: none;
 }
+
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
 </style>
